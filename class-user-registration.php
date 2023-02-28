@@ -1,13 +1,15 @@
 <?php
-if (!defined('ABSPATH'))
-    exit; // if direct access 
+namespace HomerunnerBilling;
+
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 /**
  *  User registration form
  */
-final class userresgistration
+final class UserRegistration
 {
-
     function __construct()
     {
         add_action('wp_ajax_nopriv_inv_registeration_callback', [$this, 'inv_bill_registeration_form']);

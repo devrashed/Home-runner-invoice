@@ -1,13 +1,11 @@
 <?php
-if (!defined('ABSPATH'))
-	exit; // if direct access 
+namespace HomerunnerBilling;
 
-/**
- *  setting page
- */
-//require_once 'inv_bill_customer_create.php';
+if (!defined('ABSPATH')) {
+	exit;
+}
 
-final class invSettimngPage
+final class SettingsPage
 {
 
 	function __construct()
@@ -22,29 +20,29 @@ final class invSettimngPage
 			__('Invoice Bill', 'inv_connect'), // page title name 
 			__('Invoice Bill', 'inv_connect'), // menu name 
 			"manage_options", // handle submenu 
-			"inv-api", // URL 
+			"homebill", // URL 
 			array($this, 'inv_settings_page_menu'), // page name or function name. 
 			"dashicons-admin-settings", // icon name 
 			4
 		);
 
 		add_submenu_page(
-			"inv-api", // url handle from main menu
+			"homebill", // url handle from main menu
 			__('Stripe Config', 'inv_connect'), // page title name
 			__('Stripe Config', 'inv_connect'), // sub menu name 
 			"manage_options", // menu handle 
-			"inv-api", // URL 
+			"homebill", // URL 
 			array($this, 'inv_settings_page_menu'), // page name or function name.
 		);
 
 		add_submenu_page(
-			"inv-api", // url handle from main menu
+			"homebill", // url handle from main menu
 			__('Create Customer Account', 'inv_connect'), // page title name
 			__('Add New Customer', 'inv_connect'), // sub menu name 
 			"manage_options", // menu handle 
 			"inv-create-account", // URL 
 			/*function() {
-			$instasntcustomer = new inv_customercreate();
+			$instasntcustomer = new homebill-frontendercreate();
 			$instasntcustomer->inv_stripe_form();
 			}*/
 			array($this, 'inv_strip_create'),

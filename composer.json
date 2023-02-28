@@ -1,6 +1,6 @@
 {
-  "name": "homerunner/billing",
-  "description": "Homerunner customer billing",
+  "name": "hudsoncreativestudio/homerunner-billing",
+  "description": "Homerunner billing management wordpress plugin",
   "keywords": [
     "stripe",
     "payment processing",

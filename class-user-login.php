@@ -1,4 +1,6 @@
 <?php
+namespace HomerunnerBilling;
+
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -6,9 +8,8 @@ if (!defined('ABSPATH')) {
 /**
  *  User Login form
  */
-final class userlogin
+final class UserLogin
 {
-
     function __construct()
     {
 
