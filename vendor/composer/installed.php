@@ -3,7 +3,7 @@
         'name' => 'homerunner/billing',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '97d7c1c4eff21457270ecee51866880799abc5fb',
+        'reference' => '02c70ebe3043a48afd65cb43a1dd4c42ad759f63',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'homerunner/billing' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '97d7c1c4eff21457270ecee51866880799abc5fb',
+            'reference' => '02c70ebe3043a48afd65cb43a1dd4c42ad759f63',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
