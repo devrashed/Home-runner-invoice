@@ -1,21 +1,21 @@
-let ajaxurl = invo_ajax_object.ajax_url;
-//let userId = invo_ajax_object.userID;
+let ajaxurl = homebill_frontend_vars.ajax_url;
+//let userId = homebill_frontend_vars.userID;
 
-jQuery(document).on('click', '#inv_registeration', function() {
-    
+jQuery(document).on('click', '#inv_registeration', function () {
+
 	console.log('222');
 
 	jQuery('#bs_error_message').text('');
 
 	let inv_username = document.getElementById('inv_username').value;
-    let inv_email = document.getElementById('inv_email').value;
-    let inv_password = document.getElementById('inv_password').value;
+	let inv_email = document.getElementById('inv_email').value;
+	let inv_password = document.getElementById('inv_password').value;
 
-/*  console.log('inv_username');
-    console.log('inv_email');
-    console.log('inv_password');*/
+	/*  console.log('inv_username');
+			console.log('inv_email');
+			console.log('inv_password');*/
 
-	
+
 	if (inv_username === '' || inv_email === '' || inv_password === '') {
 
 		jQuery('#bs_error_message').text('All above Fields are Required');
@@ -32,14 +32,14 @@ jQuery(document).on('click', '#inv_registeration', function() {
 			jQuery("#inv_registeration").attr("disabled", true);
 			var form_data = new FormData();
 			form_data.append('action', 'inv_registeration_callback');
-			form_data.append('inv_username', inv_username); 
+			form_data.append('inv_username', inv_username);
 			form_data.append('inv_email', inv_email);
 			form_data.append('inv_password', inv_password);
-	
+
 			jQuery.ajax({
 				url: ajaxurl,
 				type: 'POST',
-				dataType : 'json',
+				dataType: 'json',
 				action: 'inv_registeration_callback',
 				contentType: false,
 				processData: false,
@@ -99,11 +99,11 @@ jQuery(document).on('click', '#invlogin', function () {
 	jQuery('#bs_error_message').text('');
 
 	let bs_email = document.getElementById('bs_email').value;
-	let bs_password = document.getElementById('bs_password').value;	
- 
-    /*console.log(bs_email);
-    console.log(bs_password);*/
- 
+	let bs_password = document.getElementById('bs_password').value;
+
+	/*console.log(bs_email);
+	console.log(bs_password);*/
+
 	if (bs_email == '' || bs_password == '') {
 
 		jQuery('#bs_error_message').text('Both Fields are Required');
@@ -127,7 +127,7 @@ jQuery(document).on('click', '#invlogin', function () {
 		};
 
 		// Send Ajax Request
-				console.log('222');
+		console.log('222');
 		jQuery.post(ajaxurl, data, function (response) {
 
 			// jQuery('.loader').remove();
@@ -136,7 +136,7 @@ jQuery(document).on('click', '#invlogin', function () {
 
 			jQuery("#invlogin").removeAttr("disabled");
 
-			if (response =='Logged in successfully') {
+			if (response == 'Logged in successfully') {
 
 				setTimeout(function () {
 
@@ -153,7 +153,7 @@ jQuery(document).on('click', '#invlogin', function () {
 	}
 
 });
-	
+
 
 
 
