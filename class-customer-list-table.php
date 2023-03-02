@@ -103,6 +103,24 @@ class Customer_List_Table extends WP_List_Table
     function column_title($customer)
     {
         printf('<strong>%s</strong>', $customer->name);
+
+        $actions = [];
+
+        $actions['edit'] = sprintf(
+            '<a href="%s" title="%s">%s</a>',
+            add_query_arg(array('id' => $customer->id, 'action' => 'edit')),
+            esc_attr__('Edit this item'),
+            __('Edit')
+        );
+
+        $actions['delete'] = sprintf(
+            '<a href="%s" title="%s">%s</a>',
+            add_query_arg(array('id' => $customer->id, 'action' => 'delete')),
+            esc_attr__('Delete this item'),
+            __('Delete')
+        );
+
+        echo $this->row_actions($actions);
     }
 
     function column_email($customer)
