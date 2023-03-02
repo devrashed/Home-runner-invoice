@@ -1,5 +1,5 @@
 <?php
-namespace HomerunnerBilling;
+namespace HomerunnerBilling\Admin;
 
 use Stripe\StripeClient;
 
@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class CustomerController
+class CustomerAjax
 {
     public function __construct()
     {

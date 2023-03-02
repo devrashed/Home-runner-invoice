@@ -12,15 +12,10 @@ final class UserLogin
 {
     function __construct()
     {
-
         add_action('wp_ajax_invs_login_callback', [$this, 'inv_login_callback']);
-
         add_action('wp_ajax_nopriv_invs_login_callback', [$this, 'inv_login_callback']);
-
         add_shortcode('inv_user_login_form', [$this, 'inv_user_login']);
-
         ///add_action('init', [$this,'custom_login']);
-
     }
 
 

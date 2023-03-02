@@ -14,6 +14,11 @@
       "homepage": "https://github.com/hudsoncreativestudio/homerunner-billing"
     }
   ],
+  "autoload": {
+    "psr-4": {
+      "HomerunnerBilling\\": "includes/"
+    }
+  },
   "require": {
     "stripe/stripe-php": "^10.7"
   }

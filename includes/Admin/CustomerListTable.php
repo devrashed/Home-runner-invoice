@@ -1,8 +1,9 @@
 <?php
-namespace HomerunnerBilling;
+namespace HomerunnerBilling\Admin;
 
 use WP_List_Table;
 use Stripe\StripeClient;
+use Stripe\Exception\AuthenticationException;
 
 if (!defined('ABSPATH')) {
     exit;
@@ -12,7 +13,7 @@ if (!class_exists('\WP_List_Table')) {
     require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
 }
 
-class Customer_List_Table extends WP_List_Table
+class CustomerListTable extends WP_List_Table
 {
     public function __construct($args = array())
     {
@@ -62,16 +63,16 @@ class Customer_List_Table extends WP_List_Table
         // will utilize the $per_page variable to set the number of items to display on each page.
         $per_page = 9999; // Number of items to display per page
 
-        $stripe = new StripeClient(get_option('homebill_stripe_secret_key'));
-        $customers = $stripe->customers->all();
-
-        // echo '<pre>';
-        // print_r($customers);
-        // echo '</pre>';
-
-        $this->items = $customers->data;
-
-        $total_items = count($customers->data);
+        try {
+            $stripe = new StripeClient(get_option('homebill_stripe_secret_key'));
+            $customers = $stripe->customers->all();
+            $this->items = $customers->data;
+            $total_items = count($customers->data);
+        }
+        catch (AuthenticationException $e) {
+            $this->items = [];
+            $total_items = 0;
+        }
 
         $this->set_pagination_args(array(
             'total_items' => $total_items,
