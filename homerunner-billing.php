@@ -61,18 +61,20 @@ final class Plugin
    public function setup()
    {
       require_once 'vendor/autoload.php';
-      
+
       require_once 'class-settings-page.php';
       require_once 'class-user-registration.php';
       require_once 'class-user-login.php';
       require_once 'class-customer-controller.php';
-      require_once 'class-wp-list-show.php';
+      require_once 'class-customers-page.php';
+      require_once 'class-customer-list-table.php';
 
       new SettingsPage();
+      new CustomersPage();
       new UserRegistration();
       new UserLogin();
       new CustomerController();
-      
+
    }
 
    /**
