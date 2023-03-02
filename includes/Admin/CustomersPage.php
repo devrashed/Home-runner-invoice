@@ -1,5 +1,5 @@
 <?php
-namespace HomerunnerBilling;
+namespace HomerunnerBilling\Admin;
 
 if (!defined('ABSPATH')) {
 	exit;
@@ -19,7 +19,7 @@ final class CustomersPage
 			__('Customers', 'homebill'),
 			__('Customers', 'homebill'),
 			"manage_options",
-			"homebill-customers",
+			"homebill",
 			array($this, 'page_content'),
 		);
 
@@ -33,7 +33,7 @@ final class CustomersPage
 		$req_action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
 		if (empty($req_action)) {
-			$customers_table = new Customer_List_Table();
+			$customers_table = new CustomerListTable();
 			$customers_table->prepare_items();
 		}
 	}
