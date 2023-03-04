@@ -1,12 +1,11 @@
-<?php 
+<?php
 use Stripe\StripeClient;
+
 $stripe = new StripeClient(get_option('homebill_stripe_secret_key'));
-$customer = $stripe->customers->retrieve(
-  $_GET['id']
- );
+$customer = $stripe->customers->retrieve($_GET['id']);
 ?>
 
-<form method="POST" id="homebill-customer-update-form">
+<form method="POST" id="homebill-customer-form">
     <table class="form-table">
         <tr>
             <th>
@@ -18,12 +17,13 @@ $customer = $stripe->customers->retrieve(
             <th>
                 <?php _e('Email') ?>
             </th>
-            <td><input type="email" id="email" name="email" value="<?php echo $customer->email;?>"></td>
+            <td><input type="email" id="email" name="email" value="<?php echo $customer->email; ?>"></td>
         </tr>
     </table>
 
     <p class="submit">
         <input type="hidden" name="action" value="homebill_update_customer" />
+        <input type="hidden" name="id" value="<?php echo $customer->id; ?>" />
         <input type="submit" name="submit" id="submit" class="button button-primary"
             value="<?php esc_attr_e('Update Customer') ?>">
     </p>
