@@ -56,7 +56,7 @@ final class CustomersPage
 				?>
 				<h1>Edit Customer</h1>
 				<?php
-				require_once 'customer-form.php';
+				require_once 'edit_customer.php';
 			} else {
 				?>
 				<h1 class="wp-heading-inline">Customers</h1>
@@ -65,7 +65,9 @@ final class CustomersPage
 				<?php
 				global $customers_table;
 				$customers_table->display();
-			}
+			    }
+			    
+			    
 			?>
 		</div>
 		<?php

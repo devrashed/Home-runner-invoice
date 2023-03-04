@@ -134,14 +134,8 @@ class CustomerListTable extends WP_List_Table
         echo date('Y-m-d H:i:s', $customer->created);
     }
 
+
 }
 
-
-// // Create an instance of the custom class and display the table
-// //function wp_show_list_data() {
-// $my_list_table = new Wppost_data();
-// $my_list_table->prepare_items();
-// $my_list_table->display();
-// //}
 
 ?>
